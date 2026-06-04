@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
+/* PP Neue Montreal — via Framer CDN */
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://framerusercontent.com/assets/3gm4DsZ7u2KhLZZCBZesuW1ClMw.woff2");
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://framerusercontent.com/assets/pHqdIssKCkNqLTgOZyE3GS4X8I.woff2");
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://framerusercontent.com/assets/eiALb3Ac2OPorMgJIBVNZMBzpg.woff2");
+}
+
+/* Design tokens — paleta provisória Navy */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:      #ffffff;
+  --bg-2:    #f4f2ee;
+  --text:    #111010;
+  --text-2:  #7a746d;
+  --blue:    #0033f0;
+  --border:  rgba(17, 16, 16, 0.09);
+
+  --font-display: "PP Neue Montreal", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure {
+  margin: 0;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-2);
+  opacity: 0.55;
+}
+
+select option {
+  color: var(--text);
+  background: var(--bg);
 }
