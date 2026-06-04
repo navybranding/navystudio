@@ -38,7 +38,7 @@ function FadeUp({
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "none" : "translateY(22px)",
-        transition: `opacity 0.72s ease ${delay}ms, transform 0.72s ease ${delay}ms`,
+        transition: `opacity 0.72s cubic-bezier(0.6, 0, 0.05, 1) ${delay}ms, transform 0.72s cubic-bezier(0.6, 0, 0.05, 1) ${delay}ms`,
       }}
       className={className}
     >
@@ -52,7 +52,7 @@ function FadeUp({
 const inputStyle: React.CSSProperties = {
   border: "1px solid var(--border)",
   color: "var(--text)",
-  backgroundColor: "var(--bg)",
+  backgroundColor: "var(--bg-2)",
   width: "100%",
   borderRadius: "12px",
   padding: "16px 20px",
@@ -107,7 +107,7 @@ export default function Home() {
 
   const fieldStyle = (name: string): React.CSSProperties => ({
     ...inputStyle,
-    borderColor: focused === name ? "var(--blue)" : "var(--border)",
+    borderColor: focused === name ? "var(--accent)" : "var(--border)",
   });
 
   return (
@@ -116,7 +116,9 @@ export default function Home() {
       <nav
         style={{
           borderBottom: "1px solid var(--border)",
-          backgroundColor: "var(--bg)",
+          backgroundColor: "rgba(25, 24, 26, 0.85)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
           position: "sticky",
           top: 0,
           zIndex: 50,
@@ -349,7 +351,7 @@ export default function Home() {
 
       {/* ─── SEÇÃO 4 — MANIFESTO ──────────────────────────────────── */}
       <section
-        style={{ backgroundColor: "var(--blue)", color: "#fff" }}
+        style={{ background: "radial-gradient(ellipse at 50% 60%, #2e2825 0%, #19181a 72%)", color: "var(--text)" }}
         className="px-5 py-28 md:px-10 md:py-44"
       >
         <FadeUp>
@@ -378,7 +380,7 @@ export default function Home() {
               style={{
                 fontFamily: "var(--font-serif), Georgia, 'Times New Roman', serif",
                 fontSize: "clamp(15px, 1.8vw, 20px)",
-                color: "rgba(255,255,255,0.65)",
+                color: "var(--text-2)",
                 fontWeight: 400,
                 lineHeight: 1.7,
               }}
@@ -431,6 +433,9 @@ export default function Home() {
               <FadeUp key={card.title} delay={i * 70}>
                 <div
                   style={{
+                    background: "rgba(36, 36, 37, 0.7)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
                     border: "1px solid var(--border)",
                     borderRadius: 20,
                     padding: "36px 32px",
@@ -439,7 +444,7 @@ export default function Home() {
                 >
                   <p
                     style={{
-                      color: "var(--blue)",
+                      color: "var(--accent)",
                       fontSize: 11,
                       fontWeight: 500,
                       letterSpacing: "0.12em",
@@ -790,7 +795,7 @@ export default function Home() {
                     disabled={loading}
                     style={{
                       backgroundColor: loading
-                        ? "var(--text-2)"
+                        ? "rgba(255, 234, 223, 0.25)"
                         : "var(--blue)",
                       color: "#fff",
                       width: "100%",
@@ -832,7 +837,7 @@ export default function Home() {
       {/* ─── FOOTER — NEWSLETTER ──────────────────────────────────── */}
       <footer
         id="newsletter"
-        style={{ backgroundColor: "var(--text)", color: "#fff" }}
+        style={{ backgroundColor: "var(--text)", color: "var(--bg)" }}
         className="px-5 py-20 md:px-10 md:py-28"
       >
         <div
@@ -851,7 +856,7 @@ export default function Home() {
             </p>
             <p
               style={{
-                color: "rgba(255,255,255,0.55)",
+                color: "rgba(25, 24, 26, 0.55)",
                 fontSize: 16,
                 lineHeight: 1.75,
                 marginBottom: 40,
@@ -874,9 +879,9 @@ export default function Home() {
                 placeholder="seu melhor e-mail"
                 style={{
                   flex: 1,
-                  backgroundColor: "rgba(255,255,255,0.07)",
-                  border: "1px solid rgba(255,255,255,0.14)",
-                  color: "#fff",
+                  backgroundColor: "rgba(25, 24, 26, 0.07)",
+                  border: "1px solid rgba(25, 24, 26, 0.2)",
+                  color: "var(--bg)",
                   borderRadius: 999,
                   padding: "15px 22px",
                   fontSize: 15,
@@ -887,7 +892,7 @@ export default function Home() {
               <button
                 type="submit"
                 style={{
-                  backgroundColor: "#fff",
+                  backgroundColor: "var(--bg)",
                   color: "var(--text)",
                   borderRadius: 999,
                   padding: "15px 24px",

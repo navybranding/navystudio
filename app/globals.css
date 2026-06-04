@@ -23,14 +23,15 @@
   src: url("https://framerusercontent.com/assets/eiALb3Ac2OPorMgJIBVNZMBzpg.woff2");
 }
 
-/* Design tokens — paleta provisória Navy */
+/* Design tokens — dark palette */
 :root {
-  --bg:      #ffffff;
-  --bg-2:    #f4f2ee;
-  --text:    #111010;
-  --text-2:  #7a746d;
+  --bg:      #19181a;
+  --bg-2:    #242425;
+  --text:    #ffeadf;
+  --text-2:  rgba(255, 234, 223, 0.5);
+  --accent:  #efd6bd;
   --blue:    #0033f0;
-  --border:  rgba(17, 16, 16, 0.09);
+  --border:  rgba(255, 234, 223, 0.1);
 
   --font-display: "PP Neue Montreal", -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -72,5 +73,5 @@ textarea::placeholder {
 
 select option {
   color: var(--text);
-  background: var(--bg);
+  background: var(--bg-2);
 }
